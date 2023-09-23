@@ -36,6 +36,7 @@
 		D430DDC12ABE86E200B3B314 /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDC02ABE86E200B3B314 /* SplashScreenViewModel.swift */; };
 		D430DDC32ABF30F300B3B314 /* AppSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDC22ABF30F300B3B314 /* AppSizes.swift */; };
 		D430DDC52ABF36EF00B3B314 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D430DDC42ABF36EF00B3B314 /* LaunchScreen.storyboard */; };
+		D430DDCB2ABF3ACD00B3B314 /* SplashScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDCA2ABF3ACD00B3B314 /* SplashScreenViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		D430DDC02ABE86E200B3B314 /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
 		D430DDC22ABF30F300B3B314 /* AppSizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSizes.swift; sourceTree = "<group>"; };
 		D430DDC42ABF36EF00B3B314 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D430DDCA2ABF3ACD00B3B314 /* SplashScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 		D430DD672ABCFE3A00B3B314 /* MusicPlayerChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				D430DDC92ABF3ABF00B3B314 /* SplashScreen */,
 				D430DDA32ABD272200B3B314 /* Supporting Files */,
 				D430DD9E2ABD254700B3B314 /* Networking */,
 			);
@@ -323,6 +326,14 @@
 			path = Player;
 			sourceTree = "<group>";
 		};
+		D430DDC92ABF3ABF00B3B314 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D430DDCA2ABF3ACD00B3B314 /* SplashScreenViewModelTests.swift */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -481,6 +492,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D430DDCB2ABF3ACD00B3B314 /* SplashScreenViewModelTests.swift in Sources */,
 				D430DDAB2ABD29FE00B3B314 /* MusicPlayerSessionTests.swift in Sources */,
 				D430DDA52ABD273200B3B314 /* String+Extension.swift in Sources */,
 				D430DDAD2ABD2DDA00B3B314 /* ItunesSearchResponseTest.swift in Sources */,
