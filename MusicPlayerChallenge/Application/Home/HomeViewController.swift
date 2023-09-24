@@ -28,6 +28,7 @@ final class HomeViewController: BaseViewController {
     private lazy var loadingScreen: UIView = {
         let loadingView = UIView()
         let spinner = UIActivityIndicatorView(style: .large)
+        spinner.color = .white
         spinner.startAnimating()
         spinner.translatesAutoresizingMaskIntoConstraints = false
         loadingView.addSubview(spinner)
@@ -118,7 +119,7 @@ extension HomeViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchQuery = searchController.searchBar.text else { return }
         if searchQuery.isEmpty {
-            viewModel.cleanSeachDate()
+            viewModel.cleanSeachData()
         } else {
             viewModel.searchForTermAfterDelay(query: searchQuery)
         }

@@ -23,11 +23,12 @@ final class HomeViewModel {
     func searchForTermAfterDelay(query: String) {
         currentPage = 0
         searchDispatchWork?.cancel()
-        searchDispatchWork = DispatchWorkItem(block: {
+        let searchDispatchWork = DispatchWorkItem(block: {
             self.searchForTerm(query: query)
         })
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5,
-                                      execute: searchDispatchWork!)
+                                      execute: searchDispatchWork)
+        self.searchDispatchWork = searchDispatchWork
     }
     
     func searchForTerm(query: String) {
@@ -67,7 +68,7 @@ final class HomeViewModel {
                                              albumImageLink: song.artworkUrl100)
     }
     
-    func cleanSeachDate() {
+    func cleanSeachData() {
         searchDispatchWork?.cancel()
         searchedSongs.removeAll()
         viewState = .empty
