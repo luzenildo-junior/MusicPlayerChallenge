@@ -9,6 +9,8 @@ import Foundation
 
 struct SearchTermRequest: APIRequest {
     let searchQuery: String
+    let page: Int
+    let numberOfFetchedItems = 30
     
     var path: String {
         "search"
@@ -26,6 +28,9 @@ struct SearchTermRequest: APIRequest {
             [
                 "term": searchQuery,
                 "media": "music",
+                "entity": "song",
+                "limit": numberOfFetchedItems,
+                "offset": page * numberOfFetchedItems
             ]
         )
     }

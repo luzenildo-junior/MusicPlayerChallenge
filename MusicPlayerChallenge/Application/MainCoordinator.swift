@@ -28,8 +28,8 @@ final class MainCoordinator: Coordinator {
     }
     
     private func showHomeView() {
-        let someView = UIViewController()
-        someView.view.backgroundColor = .white
-        navigationController.pushViewController(someView, animated: false)
+        let homeCoordinator = HomeCoordinator(navigationController: navigationController)
+        homeCoordinator.start()
+        childCoordinators.append(homeCoordinator)
     }
 }

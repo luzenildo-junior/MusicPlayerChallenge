@@ -10,4 +10,5 @@ import UIKit
 
 struct AppSizes {
     static let splashScreenImageSize: CGFloat = 200.0
+    static let albumImageSize: CGFloat = 44.0
 }
