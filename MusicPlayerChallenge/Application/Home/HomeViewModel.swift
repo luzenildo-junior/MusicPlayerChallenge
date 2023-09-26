@@ -31,6 +31,7 @@ final class HomeViewModel {
         searchDispatchWork?.cancel()
         let searchDispatchWork = DispatchWorkItem(block: {
             if query != self.currentSearchQuery {
+                self.cleanSeachData()
                 self.currentSearchQuery = query
                 self.searchForTerm(query: query)
             }
@@ -81,6 +82,7 @@ final class HomeViewModel {
     func cleanSeachData() {
         searchDispatchWork?.cancel()
         searchedSongs.removeAll()
+        currentSearchQuery = ""
         viewState = .empty
     }
     

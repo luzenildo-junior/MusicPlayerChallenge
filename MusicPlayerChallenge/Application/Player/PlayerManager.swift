@@ -16,7 +16,7 @@ final class PlayerManager {
     // Music and playlist
     private var currentPlayingSongIndex: Int = 0
     private var currentPlaylist = [ItunesSearchObject]()
-    private var currentPlayingSong: ItunesSearchObject {
+    var currentPlayingSong: ItunesSearchObject {
         return currentPlaylist[currentPlayingSongIndex]
     }
     

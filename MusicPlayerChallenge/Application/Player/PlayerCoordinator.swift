@@ -19,15 +19,17 @@ final class PlayerCoordinator: Coordinator {
     func start() {
         let playerVM = PlayerViewModel { action in
             switch action {
-            case .openSongModal:
-                self.openSongModal()
+            case .openSongModal(let currentPlayingTrack):
+                self.openMoreOptionsModal(currentPlayingTrack)
             }
         }
         let playerVC = PlayerViewController(viewModel: playerVM)
         navigationController.pushViewController(playerVC, animated: true)
     }
     
-    private func openSongModal() {
-        
+    private func openMoreOptionsModal(_ currentPlayingTrack: ItunesSearchObject) {
+        let albumScreenCoordinator = AlbumScreenCoordinator(navigationController: navigationController)
+        albumScreenCoordinator.start(albumId: currentPlayingTrack.collectionId)
+        childCoordinators.append(albumScreenCoordinator)
     }
 }

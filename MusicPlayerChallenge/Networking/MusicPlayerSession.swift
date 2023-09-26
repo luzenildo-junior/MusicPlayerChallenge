@@ -10,7 +10,7 @@ import Foundation
 
 protocol MusicPlayerSessionProtocol {
     func searchForTerm(query: String, page: Int) -> Future<ItunesSearchResponse, Error>
-    func getAlbumTracks(albumName: String) -> Future<ItunesSearchResponse, Error>
+    func getAlbumTracks(albumId: Int64) -> Future<ItunesSearchResponse, Error>
 }
 
 final class MusicPlayerSession {
@@ -34,7 +34,7 @@ extension MusicPlayerSession: MusicPlayerSessionProtocol {
         API.fetchData(for: SearchTermRequest(searchQuery: query, page: page), type: ItunesSearchResponse.self)
     }
     
-    func getAlbumTracks(albumName: String) -> Future<ItunesSearchResponse, Error> {
-        API.fetchData(for: FetchAlbumRequest(albumID: albumName), type: ItunesSearchResponse.self)
+    func getAlbumTracks(albumId: Int64) -> Future<ItunesSearchResponse, Error> {
+        API.fetchData(for: FetchAlbumRequest(albumId: albumId), type: ItunesSearchResponse.self)
     }
 }

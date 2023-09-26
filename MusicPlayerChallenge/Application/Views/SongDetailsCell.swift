@@ -38,6 +38,8 @@ final class SongDetailsCell: UITableViewCell {
         let defaultIcon = UIImage(named: "note-icon")
         imageView.image = defaultIcon
         imageView.backgroundColor = AppColors.defaultNoteIconBackgroundColor
+        imageView.layer.cornerRadius = 8
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

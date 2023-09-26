@@ -54,7 +54,7 @@ final class PlayerViewModel {
     }
     
     func didTapMoreButton() {
-        
+        viewModelAction(.openSongModal(currentPlayingTrack: playerManager.currentPlayingSong))
     }
 }
 
@@ -67,6 +67,6 @@ extension PlayerViewModel {
     }
     
     enum Action {
-        case openSongModal
+        case openSongModal(currentPlayingTrack: ItunesSearchObject)
     }
 }

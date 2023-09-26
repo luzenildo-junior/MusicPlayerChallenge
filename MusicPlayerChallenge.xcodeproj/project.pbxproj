@@ -49,6 +49,10 @@
 		D430DDE42AC09E4C00B3B314 /* PlayerButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDE32AC09E4C00B3B314 /* PlayerButtonsView.swift */; };
 		D430DDE62AC0FC8900B3B314 /* PlayerSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDE52AC0FC8900B3B314 /* PlayerSliderView.swift */; };
 		D430DDE92AC20EC900B3B314 /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDE82AC20EC900B3B314 /* TimeInterval+Extension.swift */; };
+		D430DDEE2AC2600F00B3B314 /* AlbumScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDED2AC2600F00B3B314 /* AlbumScreenViewController.swift */; };
+		D430DDF02AC2601700B3B314 /* AlbumScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDEF2AC2601700B3B314 /* AlbumScreenViewModel.swift */; };
+		D430DDF22AC2601F00B3B314 /* AlbumScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDF12AC2601F00B3B314 /* AlbumScreenCoordinator.swift */; };
+		D430DDF42AC2608500B3B314 /* AlbumScreenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDF32AC2608500B3B314 /* AlbumScreenService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +119,10 @@
 		D430DDE32AC09E4C00B3B314 /* PlayerButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerButtonsView.swift; sourceTree = "<group>"; };
 		D430DDE52AC0FC8900B3B314 /* PlayerSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSliderView.swift; sourceTree = "<group>"; };
 		D430DDE82AC20EC900B3B314 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
+		D430DDED2AC2600F00B3B314 /* AlbumScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumScreenViewController.swift; sourceTree = "<group>"; };
+		D430DDEF2AC2601700B3B314 /* AlbumScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumScreenViewModel.swift; sourceTree = "<group>"; };
+		D430DDF12AC2601F00B3B314 /* AlbumScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumScreenCoordinator.swift; sourceTree = "<group>"; };
+		D430DDF32AC2608500B3B314 /* AlbumScreenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumScreenService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +312,7 @@
 		D430DDB12ABE846A00B3B314 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				D430DDEC2AC25FD800B3B314 /* AlbumScreen */,
 				D430DDD42ABFAA3A00B3B314 /* Views */,
 				D430DDBD2ABE864600B3B314 /* Player */,
 				D430DDBC2ABE863600B3B314 /* Home */,
@@ -401,6 +410,17 @@
 				D430DDE82AC20EC900B3B314 /* TimeInterval+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		D430DDEC2AC25FD800B3B314 /* AlbumScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D430DDED2AC2600F00B3B314 /* AlbumScreenViewController.swift */,
+				D430DDEF2AC2601700B3B314 /* AlbumScreenViewModel.swift */,
+				D430DDF12AC2601F00B3B314 /* AlbumScreenCoordinator.swift */,
+				D430DDF32AC2608500B3B314 /* AlbumScreenService.swift */,
+			);
+			path = AlbumScreen;
 			sourceTree = "<group>";
 		};
 		E5F612FB32F496AAA2EBA126 /* Pods */ = {
@@ -542,6 +562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D430DDF02AC2601700B3B314 /* AlbumScreenViewModel.swift in Sources */,
 				D430DDC32ABF30F300B3B314 /* AppSizes.swift in Sources */,
 				D430DD8E2ABD079000B3B314 /* HTTPMethods.swift in Sources */,
 				D430DD522ABCFE3800B3B314 /* AppDelegate.swift in Sources */,
@@ -552,6 +573,8 @@
 				D430DD972ABD0A7F00B3B314 /* SearchTermRequest.swift in Sources */,
 				D430DDDD2AC097F700B3B314 /* PlayerViewController.swift in Sources */,
 				D430DD882ABD006C00B3B314 /* HTTPHeader.swift in Sources */,
+				D430DDEE2AC2600F00B3B314 /* AlbumScreenViewController.swift in Sources */,
+				D430DDF22AC2601F00B3B314 /* AlbumScreenCoordinator.swift in Sources */,
 				D430DDDF2AC097FF00B3B314 /* PlayerViewModel.swift in Sources */,
 				D430DDE12AC0980900B3B314 /* PlayerManager.swift in Sources */,
 				D430DDD12ABF3BF100B3B314 /* HomeService.swift in Sources */,
@@ -560,6 +583,7 @@
 				D430DD9B2ABD133700B3B314 /* ItunesSearchResponse.swift in Sources */,
 				D430DD862ABD002500B3B314 /* RequestParameters.swift in Sources */,
 				D430DDBA2ABE860E00B3B314 /* MainCoordinator.swift in Sources */,
+				D430DDF42AC2608500B3B314 /* AlbumScreenService.swift in Sources */,
 				D430DDB82ABE852500B3B314 /* CoordinatorProtocol.swift in Sources */,
 				D430DD8C2ABD06F400B3B314 /* APIConfiguration+Request.swift in Sources */,
 				D430DD9D2ABD171500B3B314 /* MusicPlayerSession.swift in Sources */,

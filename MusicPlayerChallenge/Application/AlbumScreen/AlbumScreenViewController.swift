@@ -1,22 +1,18 @@
 //
-//  HomeViewController.swift
+//  AlbumScreenViewController.swift
 //  MusicPlayerChallenge
 //
-//  Created by Luzenildo Junior on 23/09/23.
+//  Created by Luzenildo Junior on 25/09/23.
 //
 
 import Combine
 import Foundation
 import UIKit
 
-final class HomeViewController: BaseViewController {
-    // MARK: View elements
-    private let searchBar = UISearchController(searchResultsController: nil)
-    
+final class AlbumScreenViewController: BaseViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.dataSource = self
-        tableView.delegate = self
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.register(type: SongDetailsCell.self)
@@ -26,10 +22,10 @@ final class HomeViewController: BaseViewController {
     }()
     
     private var cancellables = Set<AnyCancellable>()
-    private var viewModel: HomeViewModel
+    private var viewModel: AlbumScreenViewModel
     
     // MARK: Lifecycle methods
-    init(viewModel: HomeViewModel) {
+    init(viewModel: AlbumScreenViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -42,12 +38,11 @@ final class HomeViewController: BaseViewController {
         super.viewDidLoad()
         setupView()
         subscribeToPublishers()
+        viewModel.fetchAlbumTracks()
     }
     
     private func setupView() {
-        title = "Songs"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        setupSearchBar()
+        navigationController?.navigationBar.prefersLargeTitles = false
         
         view.addSubview(tableView)
         
@@ -59,28 +54,15 @@ final class HomeViewController: BaseViewController {
         ])
     }
     
-    private func setupSearchBar() {
-        searchBar.searchResultsUpdater = self
-        searchBar.obscuresBackgroundDuringPresentation = false
-        searchBar.hidesNavigationBarDuringPresentation = false
-        searchBar.searchBar.placeholder = "Search"
-        searchBar.searchBar.barStyle = .black
-        navigationItem.searchController = searchBar
-        navigationItem.hidesSearchBarWhenScrolling = false
-    }
-    
     private func subscribeToPublishers() {
         viewModel.$viewState
             .sink { [weak self] viewState in
                 guard let self = self else { return }
                 switch viewState {
-                case .empty:
-                    self.stopLoading()
-                    self.tableView.reloadData()
                 case .loading:
                     self.startLoading()
-                    break
-                case .finishedSearching:
+                case .updateAlbumScreen(let albumName):
+                    self.title = albumName
                     self.stopLoading()
                     self.tableView.reloadData()
                 case .error:
@@ -92,40 +74,16 @@ final class HomeViewController: BaseViewController {
     }
 }
 
-extension HomeViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let searchQuery = searchController.searchBar.text else { return }
-        if searchQuery.isEmpty {
-            viewModel.cleanSeachData()
-        } else {
-            viewModel.searchForTermAfterDelay(query: searchQuery)
-        }
-    }
-}
-
-extension HomeViewController: UITableViewDataSource {
+extension AlbumScreenViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfSearchedSongs()
+        return viewModel.numberOfTracksInTheAlbum()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(for: SongDetailsCell.self,
                                                        indexPath: indexPath),
-              let songDetails = viewModel.getSongInfo(for: indexPath) else { return UITableViewCell() }
+              let songDetails = viewModel.getTrackInfo(for: indexPath) else { return UITableViewCell() }
         cell.setupSongInfo(songDetails: songDetails)
         return cell
-    }
-}
-
-extension HomeViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.didSelectedSong(at: indexPath)
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let searchQuery = searchBar.searchBar.text else { return }
-        if indexPath.row == viewModel.numberOfSearchedSongs() - 2 {
-            viewModel.loadMoreData(query: searchQuery)
-        }
     }
 }

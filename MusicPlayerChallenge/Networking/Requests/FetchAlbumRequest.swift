@@ -8,7 +8,7 @@
 import Foundation
 
 struct FetchAlbumRequest: APIRequest {
-    let albumID: String
+    let albumId: Int64
     
     var path: String {
         "lookup"
@@ -24,7 +24,7 @@ struct FetchAlbumRequest: APIRequest {
     var parameters: RequestParameters {
         .queryItems(
             [
-                "id": albumID,
+                "id": albumId,
                 "entity": "song"
             ]
         )
