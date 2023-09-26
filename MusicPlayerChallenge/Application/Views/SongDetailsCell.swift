@@ -13,6 +13,7 @@ struct SongDetailsDisplayableContent {
     let songName: String?
     let songArtist: String
     let albumImageLink: String?
+    let songTotalTime: Int32?
 }
 
 final class SongDetailsCell: UITableViewCell {

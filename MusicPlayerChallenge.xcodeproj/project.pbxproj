@@ -42,6 +42,13 @@
 		D430DDD32ABFA29F00B3B314 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDD22ABFA29F00B3B314 /* HomeCoordinator.swift */; };
 		D430DDD62ABFAA5300B3B314 /* SongDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDD52ABFAA5300B3B314 /* SongDetailsCell.swift */; };
 		D430DDD92ABFB27D00B3B314 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDD82ABFB27D00B3B314 /* UITableView+Extension.swift */; };
+		D430DDDB2AC097EE00B3B314 /* PlayerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDDA2AC097EE00B3B314 /* PlayerCoordinator.swift */; };
+		D430DDDD2AC097F700B3B314 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDDC2AC097F700B3B314 /* PlayerViewController.swift */; };
+		D430DDDF2AC097FF00B3B314 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDDE2AC097FF00B3B314 /* PlayerViewModel.swift */; };
+		D430DDE12AC0980900B3B314 /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDE02AC0980900B3B314 /* PlayerManager.swift */; };
+		D430DDE42AC09E4C00B3B314 /* PlayerButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDE32AC09E4C00B3B314 /* PlayerButtonsView.swift */; };
+		D430DDE62AC0FC8900B3B314 /* PlayerSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDE52AC0FC8900B3B314 /* PlayerSliderView.swift */; };
+		D430DDE92AC20EC900B3B314 /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDE82AC20EC900B3B314 /* TimeInterval+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +108,13 @@
 		D430DDD22ABFA29F00B3B314 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		D430DDD52ABFAA5300B3B314 /* SongDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailsCell.swift; sourceTree = "<group>"; };
 		D430DDD82ABFB27D00B3B314 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		D430DDDA2AC097EE00B3B314 /* PlayerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCoordinator.swift; sourceTree = "<group>"; };
+		D430DDDC2AC097F700B3B314 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		D430DDDE2AC097FF00B3B314 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
+		D430DDE02AC0980900B3B314 /* PlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
+		D430DDE32AC09E4C00B3B314 /* PlayerButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerButtonsView.swift; sourceTree = "<group>"; };
+		D430DDE52AC0FC8900B3B314 /* PlayerSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSliderView.swift; sourceTree = "<group>"; };
+		D430DDE82AC20EC900B3B314 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +293,7 @@
 		D430DDB02ABE846400B3B314 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D430DDE72AC20E9E00B3B314 /* Extension */,
 				D430DDC42ABF36EF00B3B314 /* LaunchScreen.storyboard */,
 				D430DD5A2ABCFE3A00B3B314 /* Assets.xcassets */,
 				D430DDB42ABE847C00B3B314 /* Constants */,
@@ -338,6 +353,11 @@
 		D430DDBD2ABE864600B3B314 /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				D430DDE22AC09E3B00B3B314 /* View */,
+				D430DDDA2AC097EE00B3B314 /* PlayerCoordinator.swift */,
+				D430DDDC2AC097F700B3B314 /* PlayerViewController.swift */,
+				D430DDDE2AC097FF00B3B314 /* PlayerViewModel.swift */,
+				D430DDE02AC0980900B3B314 /* PlayerManager.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -364,6 +384,23 @@
 				D430DDD82ABFB27D00B3B314 /* UITableView+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D430DDE22AC09E3B00B3B314 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D430DDE32AC09E4C00B3B314 /* PlayerButtonsView.swift */,
+				D430DDE52AC0FC8900B3B314 /* PlayerSliderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D430DDE72AC20E9E00B3B314 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D430DDE82AC20EC900B3B314 /* TimeInterval+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		E5F612FB32F496AAA2EBA126 /* Pods */ = {
@@ -508,12 +545,17 @@
 				D430DDC32ABF30F300B3B314 /* AppSizes.swift in Sources */,
 				D430DD8E2ABD079000B3B314 /* HTTPMethods.swift in Sources */,
 				D430DD522ABCFE3800B3B314 /* AppDelegate.swift in Sources */,
+				D430DDE92AC20EC900B3B314 /* TimeInterval+Extension.swift in Sources */,
 				D430DDB32ABE847800B3B314 /* AppColors.swift in Sources */,
 				D430DDD62ABFAA5300B3B314 /* SongDetailsCell.swift in Sources */,
 				D430DDBF2ABE86D900B3B314 /* SplashScreenViewController.swift in Sources */,
 				D430DD972ABD0A7F00B3B314 /* SearchTermRequest.swift in Sources */,
+				D430DDDD2AC097F700B3B314 /* PlayerViewController.swift in Sources */,
 				D430DD882ABD006C00B3B314 /* HTTPHeader.swift in Sources */,
+				D430DDDF2AC097FF00B3B314 /* PlayerViewModel.swift in Sources */,
+				D430DDE12AC0980900B3B314 /* PlayerManager.swift in Sources */,
 				D430DDD12ABF3BF100B3B314 /* HomeService.swift in Sources */,
+				D430DDE62AC0FC8900B3B314 /* PlayerSliderView.swift in Sources */,
 				D430DDAF2ABE83E500B3B314 /* BaseViewController.swift in Sources */,
 				D430DD9B2ABD133700B3B314 /* ItunesSearchResponse.swift in Sources */,
 				D430DD862ABD002500B3B314 /* RequestParameters.swift in Sources */,
@@ -523,7 +565,9 @@
 				D430DD9D2ABD171500B3B314 /* MusicPlayerSession.swift in Sources */,
 				D430DDD92ABFB27D00B3B314 /* UITableView+Extension.swift in Sources */,
 				D430DDD32ABFA29F00B3B314 /* HomeCoordinator.swift in Sources */,
+				D430DDDB2AC097EE00B3B314 /* PlayerCoordinator.swift in Sources */,
 				D430DDCD2ABF3BDF00B3B314 /* HomeViewController.swift in Sources */,
+				D430DDE42AC09E4C00B3B314 /* PlayerButtonsView.swift in Sources */,
 				D430DDCF2ABF3BE700B3B314 /* HomeViewModel.swift in Sources */,
 				D430DD902ABD08A800B3B314 /* NetworkAPI.swift in Sources */,
 				D430DD992ABD0BCA00B3B314 /* FetchAlbumRequest.swift in Sources */,

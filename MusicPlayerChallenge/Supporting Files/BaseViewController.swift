@@ -12,11 +12,12 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackgroundColor()
+        setBackButton()
     }
     
     func setBackButton(){
         let buttonForBack = UIButton(type: .custom)
-        let image = UIImage(named: "back-button")
+        let image = UIImage(named: "back-icon")
         
         buttonForBack.setImage(image, for: .normal)
         buttonForBack.imageView?.tintColor = UIColor.white
@@ -28,7 +29,9 @@ class BaseViewController: UIViewController {
         )
         
         let barButtonItemForClose = UIBarButtonItem(customView: buttonForBack)
-        self.navigationItem.setLeftBarButton(barButtonItemForClose, animated: false)
+        if navigationController?.viewControllers.count ?? 0 > 1 {
+            self.navigationItem.setLeftBarButton(barButtonItemForClose, animated: false)
+        }
     }
 
     @objc func closeViewController() {

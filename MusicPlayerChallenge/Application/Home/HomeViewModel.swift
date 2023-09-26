@@ -12,19 +12,28 @@ final class HomeViewModel {
     private let service: HomeService
     private var searchedSongs = [ItunesSearchObject]()
     private var searchDispatchWork: DispatchWorkItem?
+    private var currentSearchQuery = ""
     private var currentPage = 0
     private let maxNumberOfPages = 4
     private var isLoadingMoreData = false
     
-    init(service: HomeService = HomeService()) {
+    private let viewModelAction: (Action) -> ()
+    
+    init(service: HomeService = HomeService(),
+         viewModelAction: @escaping (Action) -> ()) {
         self.service = service
+        self.viewModelAction = viewModelAction
     }
     
     func searchForTermAfterDelay(query: String) {
         currentPage = 0
+        
         searchDispatchWork?.cancel()
         let searchDispatchWork = DispatchWorkItem(block: {
-            self.searchForTerm(query: query)
+            if query != self.currentSearchQuery {
+                self.currentSearchQuery = query
+                self.searchForTerm(query: query)
+            }
         })
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5,
                                       execute: searchDispatchWork)
@@ -65,7 +74,8 @@ final class HomeViewModel {
         let song = searchedSongs[indexPath.row]
         return SongDetailsDisplayableContent(songName: song.trackName,
                                              songArtist: song.artistName,
-                                             albumImageLink: song.artworkUrl100)
+                                             albumImageLink: song.artworkUrl100,
+                                             songTotalTime: song.trackTimeMillis)
     }
     
     func cleanSeachData() {
@@ -78,7 +88,8 @@ final class HomeViewModel {
         guard indexPath.row < searchedSongs.count else {
             return
         }
-        let song = searchedSongs[indexPath.row]
+        viewModelAction(.navigateToPlayer)
+        PlayerManager.shared.startPlaying(playlist: searchedSongs, playSongIndex: indexPath.row)
     }
 }
 
@@ -88,5 +99,9 @@ extension HomeViewModel {
         case loading
         case finishedSearching
         case error
+    }
+    
+    enum Action {
+        case navigateToPlayer
     }
 }

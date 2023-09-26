@@ -16,8 +16,19 @@ final class HomeCoordinator: Coordinator {
     }
     
     func start() {
-        let homeVM = HomeViewModel()
+        let homeVM = HomeViewModel { action in
+            switch action {
+            case .navigateToPlayer:
+                self.navigateToPlayerView()
+            }
+        }
         let homeVC = HomeViewController(viewModel: homeVM)
         navigationController.pushViewController(homeVC, animated: false)
+    }
+    
+    private func navigateToPlayerView() {
+        let playerCoordinator = PlayerCoordinator(navigationController: navigationController)
+        playerCoordinator.start()
+        childCoordinators.append(playerCoordinator)
     }
 }
