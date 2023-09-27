@@ -14,6 +14,7 @@ struct MoreOptionsDisplayableContent {
 }
 
 final class MoreOptionsCell: UITableViewCell {
+    // MARK: UI elements
     private lazy var optionTitleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16.0)
@@ -45,11 +46,13 @@ final class MoreOptionsCell: UITableViewCell {
         addSubview(mainStackView)
         
         NSLayoutConstraint.activate([
+            // mainStackView
             mainStackView.topAnchor.constraint(equalTo: topAnchor),
             mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
+            // optionIcon
             optionIcon.widthAnchor.constraint(equalToConstant: AppSizes.moreOptionsCellIconSize),
             optionIcon.heightAnchor.constraint(equalToConstant: AppSizes.moreOptionsCellIconSize),
         ])

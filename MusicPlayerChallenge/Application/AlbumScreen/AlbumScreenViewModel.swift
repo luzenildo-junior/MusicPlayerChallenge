@@ -9,6 +9,7 @@ import Combine
 import Foundation
 
 final class AlbumScreenViewModel {
+    // MARK: View model elements
     @Published var viewState: ViewState = .loading
     private let service: AlbumScreenService
     private let albumId: Int64
@@ -20,6 +21,7 @@ final class AlbumScreenViewModel {
         self.albumId = albumId
     }
     
+    // MARK: Public methods
     func fetchAlbumTracks() {
         service.fetchAlbumInfo(albumId: albumId) { result in
             switch result {

@@ -8,6 +8,7 @@
 import Foundation
 
 final class HomeViewModel {
+    // MARK: View model elements
     @Published var viewState: State = .empty
     private let service: HomeService
     private var searchedSongs = [ItunesSearchObject]()
@@ -25,6 +26,7 @@ final class HomeViewModel {
         self.viewModelAction = viewModelAction
     }
     
+    // MARK: Private methods
     private func searchForTerm(query: String) {
         viewState = .loading
         self.service.searchForTerm(query: query, page: self.currentPage) { result in
@@ -39,6 +41,7 @@ final class HomeViewModel {
         }
     }
     
+    // MARK: Public methods
     func searchForTermAfterDelay(query: String) {
         currentPage = 0
         

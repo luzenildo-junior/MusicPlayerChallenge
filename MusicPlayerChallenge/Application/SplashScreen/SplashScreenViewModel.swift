@@ -9,6 +9,7 @@ import Combine
 import Foundation
 
 final class SplashScreenViewModel {
+    // MARK: View model elements
     @Published var dismissSplash = false
     let affineTransformationScale = 0.2
     

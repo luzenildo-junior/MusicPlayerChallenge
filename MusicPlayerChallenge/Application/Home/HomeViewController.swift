@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 final class HomeViewController: BaseViewController {
-    // MARK: View elements
+    // MARK: View UI elements
     private let searchBar = UISearchController(searchResultsController: nil)
     
     private lazy var tableView: UITableView = {
@@ -57,6 +57,7 @@ final class HomeViewController: BaseViewController {
         subscribeToPublishers()
     }
     
+    // MARK: Private Methods
     private func setupView() {
         title = "Songs"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -67,10 +68,13 @@ final class HomeViewController: BaseViewController {
         view.addSubview(emptyStateLabel)
         
         NSLayoutConstraint.activate([
+            // tableView
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            // emptyStateLabel
             emptyStateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             emptyStateLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
@@ -114,6 +118,7 @@ final class HomeViewController: BaseViewController {
     }
 }
 
+// MARK: UISearchResultsUpdating
 extension HomeViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchQuery = searchController.searchBar.text else { return }
@@ -125,6 +130,7 @@ extension HomeViewController: UISearchResultsUpdating {
     }
 }
 
+// MARK: UITableViewDataSource
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfSearchedSongs()
@@ -140,6 +146,7 @@ extension HomeViewController: UITableViewDataSource {
     }
 }
 
+// MARK: UITableViewDelegate
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectedSong(at: indexPath)

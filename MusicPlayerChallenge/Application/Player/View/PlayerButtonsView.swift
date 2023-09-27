@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 final class PlayerButtonsView: UIView {
+    // MARK: UI elements
     private lazy var previousSongButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "backward-icon"), for: .normal)

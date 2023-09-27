@@ -18,6 +18,7 @@ struct PlayerDiplayableContent {
 }
 
 final class PlayerViewController: BaseViewController {
+    // MARK: UI elements
     private lazy var songName: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 24.0)
@@ -69,6 +70,7 @@ final class PlayerViewController: BaseViewController {
         subscribeToPublishers()
     }
     
+    // MARK: Private methods
     private func setupView() {
         let topView = createTopView()
         let bottomView = createBottomView()

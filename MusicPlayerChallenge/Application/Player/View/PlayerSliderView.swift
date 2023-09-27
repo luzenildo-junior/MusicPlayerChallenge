@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 final class PlayerSliderView: UIView {
+    // MARK: UI elements
     private lazy var seekSlider: UISlider = {
         let slider = UISlider()
         slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)

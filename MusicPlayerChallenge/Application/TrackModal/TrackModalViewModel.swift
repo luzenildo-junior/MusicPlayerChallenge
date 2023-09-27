@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 final class TrackModalViewModel {
+    // MARK: View model elements
     @Published var viewState: ViewState = .none
     private let trackDetails: ItunesSearchObject
     private let options: [Option] = Option.allCases
@@ -22,6 +23,7 @@ final class TrackModalViewModel {
         self.viewModelAction = viewModelAction
     }
     
+    // MARK: Public methods
     func getTrackDisplayableContent() {
         viewState = .configureModal(
             trackDisplayableContent: SongDetailsDisplayableContent(
@@ -56,6 +58,7 @@ final class TrackModalViewModel {
         }
     }
     
+    // MARK: Private methods
     private func navigateToAlbumScreen() {
         viewModelAction(.navigateToAlbumScreen(albumId: trackDetails.collectionId))
     }

@@ -17,6 +17,7 @@ struct SongDetailsDisplayableContent {
 }
 
 final class SongDetailsCell: UITableViewCell {
+    // MARK: UI elements
     private lazy var songName: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16.0)
@@ -61,11 +62,13 @@ final class SongDetailsCell: UITableViewCell {
         addSubview(mainStackView)
         
         NSLayoutConstraint.activate([
+            // mainStackView
             mainStackView.topAnchor.constraint(equalTo: topAnchor),
             mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
+            // albumImage
             albumImage.widthAnchor.constraint(equalToConstant: AppSizes.albumImageSize),
             albumImage.heightAnchor.constraint(equalToConstant: AppSizes.albumImageSize),
         ])

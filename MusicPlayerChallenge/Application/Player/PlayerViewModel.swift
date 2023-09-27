@@ -9,6 +9,7 @@ import Combine
 import Foundation
 
 final class PlayerViewModel {
+    // MARK: View model elements
     @Published var viewState: State = .none
     private let playerManager = PlayerManager.shared
     private var cancellables = Set<AnyCancellable>()
@@ -19,7 +20,8 @@ final class PlayerViewModel {
         self.viewModelAction = viewModelAction
         subscribeToPublishers()
     }
-        
+
+    // MARK: Private methods
     private func subscribeToPublishers() {
         playerManager.$playerState
             .receive(on: DispatchQueue.main)
@@ -57,6 +59,7 @@ final class PlayerViewModel {
             .store(in: &cancellables)
     }
     
+    // MARK: Public methods
     func didTapMoreButton() {
         viewModelAction(.openSongModal(currentPlayingTrack: playerManager.currentPlayingSong))
     }

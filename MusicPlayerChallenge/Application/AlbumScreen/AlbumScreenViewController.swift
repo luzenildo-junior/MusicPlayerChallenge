@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 final class AlbumScreenViewController: BaseViewController {
+    // MARK: UI elements
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
@@ -21,6 +22,7 @@ final class AlbumScreenViewController: BaseViewController {
         return tableView
     }()
     
+    // MARK: View private elements
     private var cancellables = Set<AnyCancellable>()
     private var viewModel: AlbumScreenViewModel
     
@@ -41,6 +43,7 @@ final class AlbumScreenViewController: BaseViewController {
         viewModel.fetchAlbumTracks()
     }
     
+    // MARK: Private methods
     private func setupView() {
         navigationController?.navigationBar.prefersLargeTitles = false
         view.addSubview(tableView)
@@ -91,6 +94,7 @@ final class AlbumScreenViewController: BaseViewController {
     }
 }
 
+// MARK: UITableViewDataSource
 extension AlbumScreenViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfTracksInTheAlbum()

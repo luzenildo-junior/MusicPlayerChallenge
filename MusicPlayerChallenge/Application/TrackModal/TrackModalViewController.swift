@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 final class TrackModalViewController: UIViewController {
+    // MARK: UI elements
     private lazy var trackName: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 18.0)
@@ -39,6 +40,7 @@ final class TrackModalViewController: UIViewController {
         return tableView
     }()
     
+    // MARK: View private elements
     private var cancellables = Set<AnyCancellable>()
     private let viewModel: TrackModalViewModel
     
@@ -58,6 +60,7 @@ final class TrackModalViewController: UIViewController {
         viewModel.getTrackDisplayableContent()
     }
     
+    // MARK: Private methods
     private func setupView() {
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.setNavigationBarHidden(true, animated: false)
@@ -113,6 +116,7 @@ final class TrackModalViewController: UIViewController {
     }
 }
 
+// MARK: UITableViewDataSource
 extension TrackModalViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfOptions()
@@ -128,6 +132,7 @@ extension TrackModalViewController: UITableViewDataSource {
     }
 }
 
+// MARK: UITableViewDelegate
 extension TrackModalViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didTapOption(for: indexPath)

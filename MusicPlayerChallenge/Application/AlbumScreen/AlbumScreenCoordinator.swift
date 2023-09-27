@@ -16,6 +16,7 @@ final class AlbumScreenCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
+    @available(*, deprecated, message: "Please use start(albumId)")
     func start() { }
     
     func start(albumId: Int64) {

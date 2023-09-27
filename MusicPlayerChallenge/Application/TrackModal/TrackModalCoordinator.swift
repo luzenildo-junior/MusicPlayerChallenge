@@ -16,6 +16,7 @@ final class TrackModalCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
+    @available(*, deprecated, message: "Please use start(trackDetails)")
     func start() { }
     
     func start(trackDetails: ItunesSearchObject) {
