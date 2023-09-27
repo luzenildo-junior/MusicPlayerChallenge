@@ -11,7 +11,7 @@ import Foundation
 final class PlayerManager {
     static var shared = PlayerManager()
     
-    @Published var playerState: PlayerState = .empty
+    @Published var playerState: PlayerState = .none
     
     // Music and playlist
     private var currentPlayingSongIndex: Int = 0
@@ -112,7 +112,7 @@ final class PlayerManager {
 
 extension PlayerManager {
     enum PlayerState {
-        case empty
+        case none
         case playSong(
             song: ItunesSearchObject,
             canPlayNextSong: Bool,

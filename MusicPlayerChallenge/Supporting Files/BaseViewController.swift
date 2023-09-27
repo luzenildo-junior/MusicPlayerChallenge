@@ -75,6 +75,17 @@ class BaseViewController: UIViewController {
     func stopLoading() {
         loadingScreen.removeFromSuperview()
     }
+    
+    func showAlert(message: String, retryHandler: (() -> ())? = nil) {
+        let alert = UIAlertController(title: "Error!", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        if retryHandler != nil {
+            alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { _ in
+                retryHandler?()
+            }))
+        }
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 private extension BaseViewController {

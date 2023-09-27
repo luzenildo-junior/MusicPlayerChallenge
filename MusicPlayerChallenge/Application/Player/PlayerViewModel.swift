@@ -23,7 +23,8 @@ final class PlayerViewModel {
     private func subscribeToPublishers() {
         playerManager.$playerState
             .receive(on: DispatchQueue.main)
-            .sink { playerState in
+            .sink { [weak self] playerState in
+                guard let self = self else { return }
                 switch playerState {
                 case .playSong(let song,
                                let canPlayNextSong,
@@ -42,8 +43,6 @@ final class PlayerViewModel {
                             currentSongTime: 0
                         )
                     )
-                case .empty:
-                    break
                 case .updateTrackTimer(let currentTrackTimeInMillis, let totalTrackTimeInMillis):
                     self.viewState = .updateTrackTimer(
                         currentTrackTimeInMillis: currentTrackTimeInMillis,
@@ -51,6 +50,8 @@ final class PlayerViewModel {
                     )
                 case .updatePlayPauseButton(let isPlaying):
                     self.viewState = .updatePlayPauseButton(isPlaying: isPlaying)
+                case .none:
+                    break
                 }
         }
             .store(in: &cancellables)

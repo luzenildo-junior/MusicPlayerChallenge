@@ -33,8 +33,8 @@ final class HomeViewModel {
                 self.searchedSongs.append(contentsOf: songs)
                 self.viewState = .finishedSearching
                 self.isLoadingMoreData = false
-            case .failure:
-                self.viewState = .error
+            case .failure(let error):
+                self.viewState = .error(message: error.localizedDescription)
             }
         }
     }
@@ -100,7 +100,7 @@ extension HomeViewModel {
         case empty
         case loading
         case finishedSearching
-        case error
+        case error(message: String)
     }
     
     enum Action {

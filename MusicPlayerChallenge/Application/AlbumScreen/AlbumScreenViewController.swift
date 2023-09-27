@@ -69,8 +69,10 @@ final class AlbumScreenViewController: BaseViewController {
                 case .empty:
                     self.stopLoading()
                     self.showEmptyState()
-                case .error:
-                    break
+                case .error(let message):
+                    self.showAlert(message: message) {
+                        self.viewModel.fetchAlbumTracks()
+                    }
                 }
             }
             .store(in: &cancellables)

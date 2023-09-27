@@ -96,7 +96,8 @@ final class PlayerViewController: BaseViewController {
     private func subscribeToPublishers() {
         viewModel.$viewState
             .receive(on: DispatchQueue.main)
-            .sink { viewState in
+            .sink { [weak self] viewState in
+                guard let self = self else { return }
                 switch viewState {
                 case .updateView(let displayableContent):
                     self.playerButtonsView.configureButtonsView(

@@ -30,8 +30,8 @@ final class AlbumScreenViewModel {
                     return
                 }
                 self.viewState = .updateAlbumScreen(albumName: albumTracks[0].collectionName)
-            case .failure:
-                self.viewState = .error
+            case .failure(let error):
+                self.viewState = .error(message: error.localizedDescription)
             }
         }
     }
@@ -57,6 +57,6 @@ extension AlbumScreenViewModel {
         case updateAlbumScreen(albumName: String)
         case loading
         case empty
-        case error
+        case error(message: String)
     }
 }

@@ -88,9 +88,8 @@ final class HomeViewController: BaseViewController {
                 case .finishedSearching:
                     self.stopLoading()
                     self.tableView.reloadData()
-                case .error:
-                    // show error view
-                    break
+                case .error(let errorMessage):
+                    self.showAlert(message: errorMessage)
                 }
             }
             .store(in: &cancellables)
