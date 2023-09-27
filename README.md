@@ -51,7 +51,9 @@ There are 6 UI tests in this project.
 
 ### Disclaimer
 As I used an old Xcode version, you might probably see some errors while running tests. That is a known issue that I had, because of that, here are some evidences of the tests passing:
+
 [Unit Tests](https://imgur.com/a/RMZnUk3)
+
 [UITests](https://imgur.com/a/KVxrLCE)
 
 ## Improvements
