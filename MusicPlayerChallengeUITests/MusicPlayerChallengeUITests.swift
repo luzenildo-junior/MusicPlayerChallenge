@@ -8,34 +8,131 @@
 import XCTest
 
 class MusicPlayerChallengeUITests: XCTestCase {
+    var app: XCUIApplication!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        app = XCUIApplication()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        app = nil
     }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
+    
+    private func searchForFearOfTheDark() {
+        UIPasteboard.general.string = "fear of the dark"
+        
+        let homeView = app.otherElements["homeView"]
+        _ = homeView.waitForExistence(timeout: 5.0)
+        let homeSearchBar = app.otherElements["searchBar-field"]
+        
+        homeSearchBar.tap()
+        homeSearchBar.doubleTap()
+        // Make sure that your simulator is set as en_us
+        app.menuItems["Paste"].tap()
+    }
+    
+    func testIfSplashScreenAppears() {
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let landingView = app.otherElements["splash-view"]
+        let fuzeLogo = app.images["splash-logo"]
+        
+        XCTAssertTrue(landingView.exists)
+        XCTAssertTrue(fuzeLogo.exists)
     }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+    
+    func testIfHomeViewAppears() {
+        app.launch()
+        
+        let homeView = app.otherElements["homeView"]
+        _ = homeView.waitForExistence(timeout: 5.0)
+        let homeTableView = app.tables["songSearch-tableView"]
+        let homeSearchBar = app.otherElements["searchBar-field"]
+        
+        XCTAssertTrue(homeView.exists)
+        XCTAssertTrue(homeTableView.exists)
+        XCTAssertTrue(homeSearchBar.exists)
+    }
+    
+    func testTrackSearch() {
+        app.launch()
+        searchForFearOfTheDark()
+        
+        let homeTableView = app.tables["songSearch-tableView"]
+        let cell = homeTableView.cells.element(matching: .cell, identifier: "songDetailsCell_0")
+        _ = cell.waitForExistence(timeout: 5.0)
+        
+        XCTAssertTrue(cell.exists)
+    }
+    
+    func testIfAlbumViewAppears() {
+        app.launch()
+        searchForFearOfTheDark()
+        
+        let homeTableView = app.tables["songSearch-tableView"]
+        let cell = homeTableView.cells.element(matching: .cell, identifier: "songDetailsCell_0")
+        _ = cell.waitForExistence(timeout: 5.0)
+        cell.tap()
+        sleep(1)
+        
+        let playerView = app.otherElements["playerView"]
+        _ = playerView.waitForExistence(timeout: 5.0)
+        
+        XCTAssertTrue(playerView.exists)
+    }
+    
+    func testIfMoreOptionsScreenAppears() {
+        app.launch()
+        searchForFearOfTheDark()
+        
+        let homeTableView = app.tables["songSearch-tableView"]
+        let cell = homeTableView.cells.element(matching: .cell, identifier: "songDetailsCell_0")
+        _ = cell.waitForExistence(timeout: 5.0)
+        cell.tap()
+        sleep(1)
+        
+        let playerView = app.otherElements["playerView"]
+        _ = playerView.waitForExistence(timeout: 5.0)
+        let moreOptionsButton = app.buttons["moreOptionsButton"]
+        _ = moreOptionsButton.waitForExistence(timeout: 5.0)
+        moreOptionsButton.tap()
+        
+        let moreOptionsView = app.otherElements["moreOptionsView"]
+        _ = moreOptionsView.waitForExistence(timeout: 5.0)
+        
+        XCTAssertTrue(moreOptionsView.exists)
+    }
+    
+    func testIfAlbumScreenAppears() {
+        app.launch()
+        searchForFearOfTheDark()
+        
+        let homeTableView = app.tables["songSearch-tableView"]
+        let songDetailsCell = homeTableView.cells.element(matching: .cell, identifier: "songDetailsCell_0")
+        _ = songDetailsCell.waitForExistence(timeout: 5.0)
+        songDetailsCell.tap()
+        sleep(1)
+        
+        let playerView = app.otherElements["playerView"]
+        _ = playerView.waitForExistence(timeout: 5.0)
+        let moreOptionsButton = app.buttons["moreOptionsButton"]
+        _ = moreOptionsButton.waitForExistence(timeout: 5.0)
+        moreOptionsButton.tap()
+        
+        let moreOptionsView = app.otherElements["moreOptionsView"]
+        _ = moreOptionsView.waitForExistence(timeout: 5.0)
+        let moreOptionsTableView = app.tables["moreOptions-tableView"]
+        let moreOptionsCell = moreOptionsTableView.cells.element(matching: .cell, identifier: "moreOptionsCell_0")
+        _ = moreOptionsCell.waitForExistence(timeout: 5.0)
+        moreOptionsCell.tap()
+        
+        let albumView = app.otherElements["albumScreenView"]
+        _ = albumView.waitForExistence(timeout: 5.0)
+        let albumTableView = app.tables["albumScreen-tableView"]
+        _ = albumTableView.waitForExistence(timeout: 5.0)
+        let albumCell = albumTableView.cells.element(matching: .cell, identifier: "albumScreenCell_0")
+        _ = albumCell.waitForExistence(timeout: 5.0)
+        
+        XCTAssertTrue(albumCell.exists)
     }
 }

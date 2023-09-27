@@ -101,6 +101,8 @@ final class PlayerViewController: BaseViewController {
             bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        
+        view.accessibilityIdentifier = "playerView"
     }
 
     private func subscribeToPublishers() {
@@ -209,6 +211,9 @@ final class PlayerViewController: BaseViewController {
             action: #selector(didTapMoreButton),
             for: .touchUpInside
         )
+        
+        moreButton.isAccessibilityElement = true
+        moreButton.accessibilityIdentifier = "moreOptionsButton"
         let barButtonItem = UIBarButtonItem(customView: moreButton)
         navigationItem.rightBarButtonItems = [barButtonItem]
     }

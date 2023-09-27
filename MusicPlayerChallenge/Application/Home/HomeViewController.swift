@@ -47,6 +47,7 @@ final class HomeViewController: BaseViewController {
     private func setupView() {
         title = "Songs"
         navigationController?.navigationBar.prefersLargeTitles = true
+        view.accessibilityIdentifier = "homeView"
         setupSearchBar()
         
         view.addSubview(tableView)
@@ -65,8 +66,11 @@ final class HomeViewController: BaseViewController {
         searchBar.hidesNavigationBarDuringPresentation = false
         searchBar.searchBar.placeholder = "Search"
         searchBar.searchBar.barStyle = .black
+        searchBar.searchBar.isAccessibilityElement = true
+        searchBar.searchBar.accessibilityIdentifier = "searchBar-field"
         navigationItem.searchController = searchBar
         navigationItem.hidesSearchBarWhenScrolling = false
+        
     }
     
     private func subscribeToPublishers() {
@@ -113,6 +117,7 @@ extension HomeViewController: UITableViewDataSource {
                                                        indexPath: indexPath),
               let songDetails = viewModel.getSongInfo(for: indexPath) else { return UITableViewCell() }
         cell.setupSongInfo(songDetails: songDetails)
+        cell.accessibilityIdentifier = "songDetailsCell_\(indexPath.row)"
         return cell
     }
 }

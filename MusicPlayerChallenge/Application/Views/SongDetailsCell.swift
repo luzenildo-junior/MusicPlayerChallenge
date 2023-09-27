@@ -71,7 +71,6 @@ final class SongDetailsCell: UITableViewCell {
         ])
         
         isAccessibilityElement = true
-        accessibilityIdentifier = "songDetailsCell"
     }
     
     private func createSongInfoStackView() -> UIStackView {

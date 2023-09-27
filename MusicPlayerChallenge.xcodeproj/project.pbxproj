@@ -10,7 +10,6 @@
 		D430DD522ABCFE3800B3B314 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DD512ABCFE3800B3B314 /* AppDelegate.swift */; };
 		D430DD5B2ABCFE3A00B3B314 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D430DD5A2ABCFE3A00B3B314 /* Assets.xcassets */; };
 		D430DD732ABCFE3A00B3B314 /* MusicPlayerChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DD722ABCFE3A00B3B314 /* MusicPlayerChallengeUITests.swift */; };
-		D430DD752ABCFE3A00B3B314 /* MusicPlayerChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DD742ABCFE3A00B3B314 /* MusicPlayerChallengeUITestsLaunchTests.swift */; };
 		D430DD862ABD002500B3B314 /* RequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DD852ABD002500B3B314 /* RequestParameters.swift */; };
 		D430DD882ABD006C00B3B314 /* HTTPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DD872ABD006C00B3B314 /* HTTPHeader.swift */; };
 		D430DD8A2ABD05F300B3B314 /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DD892ABD05F300B3B314 /* ContentType.swift */; };
@@ -98,7 +97,6 @@
 		D430DD642ABCFE3A00B3B314 /* MusicPlayerChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicPlayerChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D430DD6E2ABCFE3A00B3B314 /* MusicPlayerChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicPlayerChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D430DD722ABCFE3A00B3B314 /* MusicPlayerChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerChallengeUITests.swift; sourceTree = "<group>"; };
-		D430DD742ABCFE3A00B3B314 /* MusicPlayerChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D430DD852ABD002500B3B314 /* RequestParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestParameters.swift; sourceTree = "<group>"; };
 		D430DD872ABD006C00B3B314 /* HTTPHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeader.swift; sourceTree = "<group>"; };
 		D430DD892ABD05F300B3B314 /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
@@ -237,7 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				D430DD722ABCFE3A00B3B314 /* MusicPlayerChallengeUITests.swift */,
-				D430DD742ABCFE3A00B3B314 /* MusicPlayerChallengeUITestsLaunchTests.swift */,
 			);
 			path = MusicPlayerChallengeUITests;
 			sourceTree = "<group>";
@@ -737,7 +734,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D430DD732ABCFE3A00B3B314 /* MusicPlayerChallengeUITests.swift in Sources */,
-				D430DD752ABCFE3A00B3B314 /* MusicPlayerChallengeUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

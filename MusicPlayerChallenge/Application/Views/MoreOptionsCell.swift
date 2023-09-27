@@ -55,7 +55,6 @@ final class MoreOptionsCell: UITableViewCell {
         ])
         
         isAccessibilityElement = true
-        accessibilityIdentifier = "moreOptionsCell"
     }
     
     func configureMoreOptions(title: String, icon: UIImage?) {

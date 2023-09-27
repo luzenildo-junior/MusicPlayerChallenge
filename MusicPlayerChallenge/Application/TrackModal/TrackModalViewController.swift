@@ -79,6 +79,7 @@ final class TrackModalViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        view.accessibilityIdentifier = "moreOptionsView"
     }
     
     private func subscribeToPublishers() {
@@ -122,6 +123,7 @@ extension TrackModalViewController: UITableViewDataSource {
                                                        indexPath: indexPath),
               let optionData = viewModel.getOptionDisplayableContent(for: indexPath) else { return UITableViewCell() }
         cell.configureMoreOptions(title: optionData.optionTitle, icon: optionData.optionIcon)
+        cell.accessibilityIdentifier = "moreOptionsCell_\(indexPath.row)"
         return cell
     }
 }

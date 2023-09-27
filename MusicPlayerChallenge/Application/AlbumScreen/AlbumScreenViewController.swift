@@ -52,6 +52,8 @@ final class AlbumScreenViewController: BaseViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        
+        view.accessibilityIdentifier = "albumScreenView"
     }
     
     private func subscribeToPublishers() {
@@ -98,6 +100,7 @@ extension AlbumScreenViewController: UITableViewDataSource {
                                                        indexPath: indexPath),
               let songDetails = viewModel.getTrackInfo(for: indexPath) else { return UITableViewCell() }
         cell.setupSongInfo(songDetails: songDetails)
+        cell.accessibilityIdentifier = "albumScreenCell_\(indexPath.row)"
         return cell
     }
 }
