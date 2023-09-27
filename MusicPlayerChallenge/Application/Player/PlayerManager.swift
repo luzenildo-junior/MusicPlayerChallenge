@@ -5,15 +5,16 @@
 //  Created by Luzenildo Junior on 24/09/23.
 //
 
+import AVFoundation
 import Combine
 import Foundation
 
 final class PlayerManager {
     static var shared = PlayerManager()
-    
     @Published var playerState: PlayerState = .none
     
     // Music and playlist
+    private var player : AVPlayer?
     private var currentPlayingSongIndex: Int = 0
     private var currentPlaylist = [ItunesSearchObject]()
     var currentPlayingSong: ItunesSearchObject {
@@ -41,35 +42,36 @@ final class PlayerManager {
         guard playSongIndex < playlist.count else { return }
         currentPlaylist = playlist
         currentPlayingSongIndex = playSongIndex
-        playSong()
+        prepareToPlaySong()
     }
     
     func playNextSong() {
         if canPlayNextSong {
             currentPlayingSongIndex = currentPlayingSongIndex + 1
-            playSong()
+            prepareToPlaySong()
         }
     }
     
     func playPreviousSong() {
         if canPlayPreviousSong {
             currentPlayingSongIndex = currentPlayingSongIndex - 1
-            playSong()
+            prepareToPlaySong()
         }
     }
     
     func playPauseSong() {
-        isPlayingSong ? pauseTimer() : startTimer()
+        isPlayingSong ? pauseSong() : playSong()
     }
     
-    func startTimer() {
+    func playSong() {
+        player?.play()
         songTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
         isPlayingSong = true
         playerState = .updatePlayPauseButton(isPlaying: isPlayingSong)
     }
     
     func setTrackTime(newValue: Int32) {
-        pauseTimer()
+        pauseSong()
         currentSongTimeInMillis = newValue
         playerState = .updateTrackTimer(
             currentTrackTimeInMillis: currentSongTimeInMillis,
@@ -78,21 +80,23 @@ final class PlayerManager {
     }
     
     // Private methods
-    private func playSong() {
-        pauseTimer()
+    private func prepareToPlaySong() {
+        pauseSong()
+        player = nil
         playerState = .playSong(
             song: currentPlayingSong,
             canPlayNextSong: canPlayNextSong,
             canPlayPreviousSong: canPlayPreviousSong
         )
         currentSongTimeInMillis = 0
-        startTimer()
+        playTrackForReal()
+        playSong()
     }
     
     @objc private func runTimer() {
         if let songTimeInMillis = songTimeInMillis,
            currentSongTimeInMillis >= songTimeInMillis - 1000 {
-            pauseTimer()
+            pauseSong()
             playNextSong()
             return
         }
@@ -103,10 +107,20 @@ final class PlayerManager {
         )
     }
     
-    private func pauseTimer() {
+    private func pauseSong() {
+        player?.pause()
         songTimer?.invalidate()
         isPlayingSong = false
         playerState = .updatePlayPauseButton(isPlaying: isPlayingSong)
+    }
+    
+    // This plays the track preview.
+    private func playTrackForReal() {
+        guard let previewUrl = currentPlayingSong.previewUrl,
+              let url = URL(string: previewUrl) else { return }
+        let playerItem = AVPlayerItem(url: url)
+        player = AVPlayer(playerItem: playerItem)
+        player?.play()
     }
 }
 

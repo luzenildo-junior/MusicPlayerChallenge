@@ -19,4 +19,5 @@ struct ItunesSearchObject: Decodable {
     let trackName: String?
     let artworkUrl100: String
     let trackTimeMillis: Int32?
+    let previewUrl: String?
 }

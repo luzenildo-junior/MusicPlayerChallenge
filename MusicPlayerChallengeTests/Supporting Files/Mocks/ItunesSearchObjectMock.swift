@@ -15,7 +15,8 @@ extension ItunesSearchObject {
             collectionId: 0123456,
             trackName: "trackName",
             artworkUrl100: "artworkURL",
-            trackTimeMillis: 01234
+            trackTimeMillis: 01234,
+            previewUrl: "previewURL"
         )
     }
 }

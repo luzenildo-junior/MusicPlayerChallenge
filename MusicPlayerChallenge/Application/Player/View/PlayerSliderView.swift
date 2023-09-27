@@ -90,7 +90,7 @@ final class PlayerSliderView: UIView {
     
     @objc func sliderValueChanged(sender: UISlider, event: UIEvent) {
         if event.allTouches?.first?.phase == .ended {
-            PlayerManager.shared.startTimer()
+            PlayerManager.shared.playSong()
             return
         }
         let newCurrentTime = Int32(sender.value)

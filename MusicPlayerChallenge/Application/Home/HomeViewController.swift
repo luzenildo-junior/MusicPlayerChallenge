@@ -25,6 +25,19 @@ final class HomeViewController: BaseViewController {
         return tableView
     }()
     
+    private lazy var emptyStateLabel: UILabel = {
+        let label = UILabel()
+        label.text = """
+                     Nothing to see here.
+                     Please search something.
+                     """
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.textColor = AppColors.songDetailsArtistTextColor
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private var cancellables = Set<AnyCancellable>()
     private var viewModel: HomeViewModel
     
@@ -51,12 +64,15 @@ final class HomeViewController: BaseViewController {
         setupSearchBar()
         
         view.addSubview(tableView)
+        view.addSubview(emptyStateLabel)
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            emptyStateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyStateLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
     
@@ -82,10 +98,12 @@ final class HomeViewController: BaseViewController {
                 case .empty:
                     self.stopLoading()
                     self.tableView.reloadData()
+                    self.emptyStateLabel.isHidden = false
                 case .loading:
                     self.startLoading()
-                    break
+                    self.emptyStateLabel.isHidden = true
                 case .finishedSearching:
+                    self.emptyStateLabel.isHidden = true
                     self.stopLoading()
                     self.tableView.reloadData()
                 case .error(let errorMessage):

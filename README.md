@@ -15,6 +15,9 @@ pod install
 If something goes wrong just do a `pod deintegrate` and then `pod install` again.
 
 ## About Implementation
+### Is the music playing?
+Yes, it is, but only the preview, as you may know. hahaha For this implementation, I wanted to mimic the real "Player", so the slide to seek works in the UI, but doesn't affect the music itself. As it wasn't specified in the documentation, I only pause/play the song when you move the slider, and you can see the UI changing the track time.
+
 ### Networking
 For this project I decided to make a little Service Networking API implementation, that pretty much uses URLSession along with Combine to make API calls. To configure the service, I'm using an `APIRequest` Protocol to handle the path, method and parameters configuration for service requests. That Protocol also conforms with `URLRequestConvertible` so it can be used with no problem with the DataTask `dataTaskPublisher`. The response for the API calls is a Combine Future Promise that will be handled in the Session layer of the networking API. For that I created the `MusicPlayerSession` interface to expose the two requests we have in this implementation to the Service side of the main app architecture.
 
