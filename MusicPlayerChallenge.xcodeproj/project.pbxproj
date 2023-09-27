@@ -70,6 +70,7 @@
 		D430DE1B2AC3C9D300B3B314 /* PlayerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DE1A2AC3C9D300B3B314 /* PlayerManagerTests.swift */; };
 		D430DE1D2AC3D8BE00B3B314 /* AlbumScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DE1C2AC3D8BE00B3B314 /* AlbumScreenViewModelTests.swift */; };
 		D430DE1F2AC3DC1700B3B314 /* TrackModalViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DE1E2AC3DC1700B3B314 /* TrackModalViewModelTests.swift */; };
+		D430DE212AC467E300B3B314 /* UISlider+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DE202AC467E300B3B314 /* UISlider+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +158,7 @@
 		D430DE1A2AC3C9D300B3B314 /* PlayerManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManagerTests.swift; sourceTree = "<group>"; };
 		D430DE1C2AC3D8BE00B3B314 /* AlbumScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumScreenViewModelTests.swift; sourceTree = "<group>"; };
 		D430DE1E2AC3DC1700B3B314 /* TrackModalViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackModalViewModelTests.swift; sourceTree = "<group>"; };
+		D430DE202AC467E300B3B314 /* UISlider+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISlider+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -450,6 +452,7 @@
 			isa = PBXGroup;
 			children = (
 				D430DDE82AC20EC900B3B314 /* TimeInterval+Extension.swift */,
+				D430DE202AC467E300B3B314 /* UISlider+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -697,6 +700,7 @@
 				D430DDCF2ABF3BE700B3B314 /* HomeViewModel.swift in Sources */,
 				D430DD902ABD08A800B3B314 /* NetworkAPI.swift in Sources */,
 				D430DD992ABD0BCA00B3B314 /* FetchAlbumRequest.swift in Sources */,
+				D430DE212AC467E300B3B314 /* UISlider+Extension.swift in Sources */,
 				D430DDFE2AC3AAC200B3B314 /* MoreOptionsCell.swift in Sources */,
 				D430DD8A2ABD05F300B3B314 /* ContentType.swift in Sources */,
 				D430DDC12ABE86E200B3B314 /* SplashScreenViewModel.swift in Sources */,

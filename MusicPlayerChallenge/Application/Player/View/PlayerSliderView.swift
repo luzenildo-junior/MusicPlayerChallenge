@@ -12,6 +12,9 @@ final class PlayerSliderView: UIView {
     private lazy var seekSlider: UISlider = {
         let slider = UISlider()
         slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
+        slider.minimumTrackTintColor = .white
+        slider.maximumTrackTintColor = AppColors.trackSliderColor
+        slider.setThumb(size: CGSize(width: 12, height: 12), backgroundColor: .white)
         slider.translatesAutoresizingMaskIntoConstraints = false
         return slider
     }()

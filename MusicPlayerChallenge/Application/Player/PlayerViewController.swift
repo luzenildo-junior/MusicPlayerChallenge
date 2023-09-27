@@ -41,6 +41,8 @@ final class PlayerViewController: BaseViewController {
         let defaultIcon = UIImage(named: "note-icon")
         imageView.image = defaultIcon
         imageView.backgroundColor = AppColors.defaultNoteIconBackgroundColor
+        imageView.layer.cornerRadius = 38.0
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

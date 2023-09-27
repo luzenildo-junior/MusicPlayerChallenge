@@ -14,7 +14,7 @@ final class HomeViewController: BaseViewController {
     private let searchBar = UISearchController(searchResultsController: nil)
     
     private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
+        let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
@@ -64,6 +64,7 @@ final class HomeViewController: BaseViewController {
         searchBar.searchResultsUpdater = self
         searchBar.obscuresBackgroundDuringPresentation = false
         searchBar.hidesNavigationBarDuringPresentation = false
+        searchBar.navigationItem.hidesSearchBarWhenScrolling = false
         searchBar.searchBar.placeholder = "Search"
         searchBar.searchBar.barStyle = .black
         searchBar.searchBar.isAccessibilityElement = true
@@ -132,5 +133,9 @@ extension HomeViewController: UITableViewDelegate {
         if indexPath.row == viewModel.numberOfSearchedSongs() - 2 {
             viewModel.loadMoreData(query: searchQuery)
         }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        searchBar.searchBar.resignFirstResponder()
     }
 }

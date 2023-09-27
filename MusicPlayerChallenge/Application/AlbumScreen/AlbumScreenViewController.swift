@@ -11,7 +11,7 @@ import UIKit
 
 final class AlbumScreenViewController: BaseViewController {
     private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
+        let tableView = UITableView()
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
@@ -43,7 +43,6 @@ final class AlbumScreenViewController: BaseViewController {
     
     private func setupView() {
         navigationController?.navigationBar.prefersLargeTitles = false
-        
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([

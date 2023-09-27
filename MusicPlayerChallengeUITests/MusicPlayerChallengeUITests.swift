@@ -13,6 +13,7 @@ class MusicPlayerChallengeUITests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
         app = XCUIApplication()
+        app.launchEnvironment = ["UITEST_DISABLE_ANIMATIONS" : "YES"]
     }
 
     override func tearDownWithError() throws {
