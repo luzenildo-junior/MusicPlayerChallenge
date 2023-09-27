@@ -9,8 +9,6 @@ import Foundation
 import UIKit
 
 final class PlayerButtonsView: UIView {
-    var viewAction: ((Action) -> ())?
-
     private lazy var previousSongButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "backward-icon"), for: .normal)
@@ -81,7 +79,14 @@ final class PlayerButtonsView: UIView {
     
     @objc func didTapButton(sender: UIButton!) {
         guard let tappedButtonAction = Action(rawValue: sender.tag) else { return }
-        viewAction?(tappedButtonAction)
+        switch tappedButtonAction {
+        case .didTapPlayButton:
+            PlayerManager.shared.playPauseSong()
+        case .didTapNextSongButton:
+            PlayerManager.shared.playNextSong()
+        case .didTapPreviousSongButton:
+            PlayerManager.shared.playPreviousSong()
+        }
     }
     
     func configureButtonsView(canPlayPreviousSong: Bool,

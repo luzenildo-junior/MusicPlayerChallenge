@@ -48,21 +48,7 @@ final class PlayerViewController: BaseViewController {
     }()
     
     private let playerSeekSlider = PlayerSliderView()
-    private lazy var playerButtonsView: PlayerButtonsView = {
-        let playerButton = PlayerButtonsView()
-        playerButton.viewAction = { viewAction in
-            switch viewAction {
-            case .didTapPlayButton:
-                PlayerManager.shared.playPauseSong()
-            case .didTapNextSongButton:
-                PlayerManager.shared.playNextSong()
-            case .didTapPreviousSongButton:
-                PlayerManager.shared.playPreviousSong()
-            }
-        }
-        playerButton.translatesAutoresizingMaskIntoConstraints = false
-        return playerButton
-    }()
+    private let playerButtonsView = PlayerButtonsView()
     
     private var cancellables = Set<AnyCancellable>()
     private var viewModel: PlayerViewModel
