@@ -28,8 +28,8 @@ final class PlayerCoordinator: Coordinator {
     }
     
     private func openMoreOptionsModal(_ currentPlayingTrack: ItunesSearchObject) {
-        let albumScreenCoordinator = AlbumScreenCoordinator(navigationController: navigationController)
-        albumScreenCoordinator.start(albumId: currentPlayingTrack.collectionId)
-        childCoordinators.append(albumScreenCoordinator)
+        let trackModalCoordinator = TrackModalCoordinator(navigationController: navigationController)
+        trackModalCoordinator.start(trackDetails: currentPlayingTrack)
+        childCoordinators.append(trackModalCoordinator)
     }
 }

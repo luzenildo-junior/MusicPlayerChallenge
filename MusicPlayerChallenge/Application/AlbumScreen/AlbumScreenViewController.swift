@@ -16,7 +16,7 @@ final class AlbumScreenViewController: BaseViewController {
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.register(type: SongDetailsCell.self)
-        tableView.accessibilityIdentifier = "songSearch-tableView"
+        tableView.accessibilityIdentifier = "albumScreen-tableView"
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -65,12 +65,26 @@ final class AlbumScreenViewController: BaseViewController {
                     self.title = albumName
                     self.stopLoading()
                     self.tableView.reloadData()
+                case .empty:
+                    self.stopLoading()
+                    self.showEmptyState()
                 case .error:
-                    // show error view
                     break
                 }
             }
             .store(in: &cancellables)
+    }
+    
+    private func showEmptyState() {
+        let emptyStateTitle = UILabel()
+        emptyStateTitle.text = "No tracks in this album"
+        emptyStateTitle.textColor = AppColors.songDetailsArtistTextColor
+        emptyStateTitle.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(emptyStateTitle)
+        NSLayoutConstraint.activate([
+            emptyStateTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyStateTitle.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
 }
 

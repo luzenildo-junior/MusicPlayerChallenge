@@ -53,6 +53,10 @@
 		D430DDF02AC2601700B3B314 /* AlbumScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDEF2AC2601700B3B314 /* AlbumScreenViewModel.swift */; };
 		D430DDF22AC2601F00B3B314 /* AlbumScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDF12AC2601F00B3B314 /* AlbumScreenCoordinator.swift */; };
 		D430DDF42AC2608500B3B314 /* AlbumScreenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDF32AC2608500B3B314 /* AlbumScreenService.swift */; };
+		D430DDF72AC37F5D00B3B314 /* TrackModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDF62AC37F5D00B3B314 /* TrackModalViewController.swift */; };
+		D430DDF92AC37F6600B3B314 /* TrackModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDF82AC37F6600B3B314 /* TrackModalViewModel.swift */; };
+		D430DDFB2AC37F6E00B3B314 /* TrackModalCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDFA2AC37F6E00B3B314 /* TrackModalCoordinator.swift */; };
+		D430DDFE2AC3AAC200B3B314 /* MoreOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDFD2AC3AAC200B3B314 /* MoreOptionsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +127,10 @@
 		D430DDEF2AC2601700B3B314 /* AlbumScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumScreenViewModel.swift; sourceTree = "<group>"; };
 		D430DDF12AC2601F00B3B314 /* AlbumScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumScreenCoordinator.swift; sourceTree = "<group>"; };
 		D430DDF32AC2608500B3B314 /* AlbumScreenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumScreenService.swift; sourceTree = "<group>"; };
+		D430DDF62AC37F5D00B3B314 /* TrackModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackModalViewController.swift; sourceTree = "<group>"; };
+		D430DDF82AC37F6600B3B314 /* TrackModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackModalViewModel.swift; sourceTree = "<group>"; };
+		D430DDFA2AC37F6E00B3B314 /* TrackModalCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackModalCoordinator.swift; sourceTree = "<group>"; };
+		D430DDFD2AC3AAC200B3B314 /* MoreOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOptionsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,6 +320,7 @@
 		D430DDB12ABE846A00B3B314 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				D430DDF52AC37F4B00B3B314 /* TrackModal */,
 				D430DDEC2AC25FD800B3B314 /* AlbumScreen */,
 				D430DDD42ABFAA3A00B3B314 /* Views */,
 				D430DDBD2ABE864600B3B314 /* Player */,
@@ -383,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				D430DDD52ABFAA5300B3B314 /* SongDetailsCell.swift */,
+				D430DDFD2AC3AAC200B3B314 /* MoreOptionsCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -421,6 +431,16 @@
 				D430DDF32AC2608500B3B314 /* AlbumScreenService.swift */,
 			);
 			path = AlbumScreen;
+			sourceTree = "<group>";
+		};
+		D430DDF52AC37F4B00B3B314 /* TrackModal */ = {
+			isa = PBXGroup;
+			children = (
+				D430DDF62AC37F5D00B3B314 /* TrackModalViewController.swift */,
+				D430DDF82AC37F6600B3B314 /* TrackModalViewModel.swift */,
+				D430DDFA2AC37F6E00B3B314 /* TrackModalCoordinator.swift */,
+			);
+			path = TrackModal;
 			sourceTree = "<group>";
 		};
 		E5F612FB32F496AAA2EBA126 /* Pods */ = {
@@ -574,8 +594,10 @@
 				D430DDDD2AC097F700B3B314 /* PlayerViewController.swift in Sources */,
 				D430DD882ABD006C00B3B314 /* HTTPHeader.swift in Sources */,
 				D430DDEE2AC2600F00B3B314 /* AlbumScreenViewController.swift in Sources */,
+				D430DDFB2AC37F6E00B3B314 /* TrackModalCoordinator.swift in Sources */,
 				D430DDF22AC2601F00B3B314 /* AlbumScreenCoordinator.swift in Sources */,
 				D430DDDF2AC097FF00B3B314 /* PlayerViewModel.swift in Sources */,
+				D430DDF92AC37F6600B3B314 /* TrackModalViewModel.swift in Sources */,
 				D430DDE12AC0980900B3B314 /* PlayerManager.swift in Sources */,
 				D430DDD12ABF3BF100B3B314 /* HomeService.swift in Sources */,
 				D430DDE62AC0FC8900B3B314 /* PlayerSliderView.swift in Sources */,
@@ -588,6 +610,7 @@
 				D430DD8C2ABD06F400B3B314 /* APIConfiguration+Request.swift in Sources */,
 				D430DD9D2ABD171500B3B314 /* MusicPlayerSession.swift in Sources */,
 				D430DDD92ABFB27D00B3B314 /* UITableView+Extension.swift in Sources */,
+				D430DDF72AC37F5D00B3B314 /* TrackModalViewController.swift in Sources */,
 				D430DDD32ABFA29F00B3B314 /* HomeCoordinator.swift in Sources */,
 				D430DDDB2AC097EE00B3B314 /* PlayerCoordinator.swift in Sources */,
 				D430DDCD2ABF3BDF00B3B314 /* HomeViewController.swift in Sources */,
@@ -595,6 +618,7 @@
 				D430DDCF2ABF3BE700B3B314 /* HomeViewModel.swift in Sources */,
 				D430DD902ABD08A800B3B314 /* NetworkAPI.swift in Sources */,
 				D430DD992ABD0BCA00B3B314 /* FetchAlbumRequest.swift in Sources */,
+				D430DDFE2AC3AAC200B3B314 /* MoreOptionsCell.swift in Sources */,
 				D430DD8A2ABD05F300B3B314 /* ContentType.swift in Sources */,
 				D430DDC12ABE86E200B3B314 /* SplashScreenViewModel.swift in Sources */,
 			);

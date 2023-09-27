@@ -25,6 +25,10 @@ final class AlbumScreenViewModel {
             switch result {
             case .success(let albumTracks):
                 self.albumTracks.append(contentsOf: albumTracks)
+                guard !albumTracks.isEmpty else {
+                    self.viewState = .empty
+                    return
+                }
                 self.viewState = .updateAlbumScreen(albumName: albumTracks[0].collectionName)
             case .failure:
                 self.viewState = .error
@@ -52,6 +56,7 @@ extension AlbumScreenViewModel {
     enum ViewState {
         case updateAlbumScreen(albumName: String)
         case loading
+        case empty
         case error
     }
 }
