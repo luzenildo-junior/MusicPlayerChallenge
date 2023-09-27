@@ -27,6 +27,7 @@ final class PlayerManager {
     private var canPlayPreviousSong: Bool {
         currentPlayingSongIndex - 1 >= 0
     }
+    private var isPlayingSong = false
     
     // Song timer
     private var songTimeInMillis: Int32? {
@@ -57,17 +58,14 @@ final class PlayerManager {
         }
     }
     
-    func cleanPlayer() {
-        currentPlayingSongIndex = 0
-        currentPlaylist = [ItunesSearchObject]()
+    func playPauseSong() {
+        isPlayingSong ? pauseTimer() : startTimer()
     }
     
     func startTimer() {
         songTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
-    }
-    
-    func pauseTimer() {
-        songTimer?.invalidate()
+        isPlayingSong = true
+        playerState = .updatePlayPauseButton(isPlaying: isPlayingSong)
     }
     
     func setTrackTime(newValue: Int32) {
@@ -104,6 +102,12 @@ final class PlayerManager {
             totalTrackTimeInMillis: songTimeInMillis
         )
     }
+    
+    private func pauseTimer() {
+        songTimer?.invalidate()
+        isPlayingSong = false
+        playerState = .updatePlayPauseButton(isPlaying: isPlayingSong)
+    }
 }
 
 extension PlayerManager {
@@ -118,5 +122,6 @@ extension PlayerManager {
             currentTrackTimeInMillis: Int32,
             totalTrackTimeInMillis: Int32?
         )
+        case updatePlayPauseButton(isPlaying: Bool)
     }
 }

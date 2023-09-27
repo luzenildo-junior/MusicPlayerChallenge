@@ -21,8 +21,10 @@ class SplashScreenViewModelTests: XCTestCase {
     func test_dismissViewWhenCountdownFinishes() {
         // Given
         let expectation = expectation(description: "expected to dismiss the view")
+        expectation.assertForOverFulfill = false
         
         viewModel.$dismissSplash
+            .receive(on: DispatchQueue.main)
             .sink { value in
                 // Then
                 if value {

@@ -25,6 +25,20 @@ final class HomeViewModel {
         self.viewModelAction = viewModelAction
     }
     
+    private func searchForTerm(query: String) {
+        viewState = .loading
+        self.service.searchForTerm(query: query, page: self.currentPage) { result in
+            switch result {
+            case .success(let songs):
+                self.searchedSongs.append(contentsOf: songs)
+                self.viewState = .finishedSearching
+                self.isLoadingMoreData = false
+            case .failure:
+                self.viewState = .error
+            }
+        }
+    }
+    
     func searchForTermAfterDelay(query: String) {
         currentPage = 0
         
@@ -39,20 +53,6 @@ final class HomeViewModel {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5,
                                       execute: searchDispatchWork)
         self.searchDispatchWork = searchDispatchWork
-    }
-    
-    func searchForTerm(query: String) {
-        viewState = .loading
-        self.service.searchForTerm(query: query, page: self.currentPage) { result in
-            switch result {
-            case .success(let songs):
-                self.searchedSongs.append(contentsOf: songs)
-                self.viewState = .finishedSearching
-                self.isLoadingMoreData = false
-            case .failure:
-                self.viewState = .error
-            }
-        }
     }
     
     func loadMoreData(query: String) {

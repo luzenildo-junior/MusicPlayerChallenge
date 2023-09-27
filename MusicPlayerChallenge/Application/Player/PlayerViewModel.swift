@@ -22,6 +22,7 @@ final class PlayerViewModel {
         
     private func subscribeToPublishers() {
         playerManager.$playerState
+            .receive(on: DispatchQueue.main)
             .sink { playerState in
                 switch playerState {
                 case .playSong(let song,
@@ -48,6 +49,8 @@ final class PlayerViewModel {
                         currentTrackTimeInMillis: currentTrackTimeInMillis,
                         totalTrackTimeInMillis: totalTrackTimeInMillis
                     )
+                case .updatePlayPauseButton(let isPlaying):
+                    self.viewState = .updatePlayPauseButton(isPlaying: isPlaying)
                 }
         }
             .store(in: &cancellables)
@@ -64,6 +67,7 @@ extension PlayerViewModel {
         case updateView(song: PlayerDiplayableContent)
         case updateTrackTimer(currentTrackTimeInMillis: Int32,
                               totalTrackTimeInMillis: Int32?)
+        case updatePlayPauseButton(isPlaying: Bool)
     }
     
     enum Action {

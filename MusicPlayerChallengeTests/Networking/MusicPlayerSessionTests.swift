@@ -19,7 +19,7 @@ final class MusicPlayerSessionTests: XCTestCase {
         let expectation = expectation(description: "expected to parse the data")
         
         // When
-        session.searchForTerm(query: "queryForSearch")
+        session.searchForTerm(query: "queryForSearch", page: 0)
             .sink { promiseCompletion in
                 switch promiseCompletion {
                 case .failure:
@@ -44,7 +44,7 @@ final class MusicPlayerSessionTests: XCTestCase {
         let expectation = expectation(description: "expected to not parse the data")
         
         // When
-        session.searchForTerm(query: "queryForSearch")
+        session.searchForTerm(query: "queryForSearch", page: 0)
             .sink { promiseCompletion in
                 switch promiseCompletion {
                 case .failure(let error):
@@ -73,7 +73,7 @@ final class MusicPlayerSessionTests: XCTestCase {
         let expectation = expectation(description: "expected to parse the data")
         
         // When
-        session.getAlbumTracks(albumName: "albumName")
+        session.getAlbumTracks(albumId: 01234567)
             .sink { promiseCompletion in
                 switch promiseCompletion {
                 case .failure:
@@ -98,7 +98,7 @@ final class MusicPlayerSessionTests: XCTestCase {
         let expectation = expectation(description: "expected to not parse the data")
         
         // When
-        session.getAlbumTracks(albumName: "albumName")
+        session.getAlbumTracks(albumId: 0123456)
             .sink { promiseCompletion in
                 switch promiseCompletion {
                 case .failure(let error):

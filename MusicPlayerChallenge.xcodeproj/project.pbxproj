@@ -57,6 +57,20 @@
 		D430DDF92AC37F6600B3B314 /* TrackModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDF82AC37F6600B3B314 /* TrackModalViewModel.swift */; };
 		D430DDFB2AC37F6E00B3B314 /* TrackModalCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDFA2AC37F6E00B3B314 /* TrackModalCoordinator.swift */; };
 		D430DDFE2AC3AAC200B3B314 /* MoreOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DDFD2AC3AAC200B3B314 /* MoreOptionsCell.swift */; };
+		D430DE012AC3B39100B3B314 /* HomeCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DE002AC3B39100B3B314 /* HomeCoordinatorTests.swift */; };
+		D430DE032AC3B3F100B3B314 /* UINavigationControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DE022AC3B3F100B3B314 /* UINavigationControllerMock.swift */; };
+		D430DE082AC3B52400B3B314 /* PlayerCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DE072AC3B52400B3B314 /* PlayerCoordinatorTests.swift */; };
+		D430DE0A2AC3B53000B3B314 /* AlbumScreenCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DE092AC3B53000B3B314 /* AlbumScreenCoordinatorTests.swift */; };
+		D430DE0C2AC3B53900B3B314 /* TrackModalCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DE0B2AC3B53900B3B314 /* TrackModalCoordinatorTests.swift */; };
+		D430DE0F2AC3B6A900B3B314 /* ItunesSearchObjectMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DE0E2AC3B6A900B3B314 /* ItunesSearchObjectMock.swift */; };
+		D430DE112AC3B73700B3B314 /* HomeServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DE102AC3B73700B3B314 /* HomeServiceTests.swift */; };
+		D430DE132AC3B79900B3B314 /* MusicPlayerSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DE122AC3B79900B3B314 /* MusicPlayerSessionMock.swift */; };
+		D430DE152AC3BAFD00B3B314 /* AlbumScreenServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DE142AC3BAFD00B3B314 /* AlbumScreenServiceTests.swift */; };
+		D430DE172AC3BB8600B3B314 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DE162AC3BB8600B3B314 /* HomeViewModelTests.swift */; };
+		D430DE192AC3C23700B3B314 /* PlayerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DE182AC3C23700B3B314 /* PlayerViewModelTests.swift */; };
+		D430DE1B2AC3C9D300B3B314 /* PlayerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DE1A2AC3C9D300B3B314 /* PlayerManagerTests.swift */; };
+		D430DE1D2AC3D8BE00B3B314 /* AlbumScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DE1C2AC3D8BE00B3B314 /* AlbumScreenViewModelTests.swift */; };
+		D430DE1F2AC3DC1700B3B314 /* TrackModalViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430DE1E2AC3DC1700B3B314 /* TrackModalViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +145,20 @@
 		D430DDF82AC37F6600B3B314 /* TrackModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackModalViewModel.swift; sourceTree = "<group>"; };
 		D430DDFA2AC37F6E00B3B314 /* TrackModalCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackModalCoordinator.swift; sourceTree = "<group>"; };
 		D430DDFD2AC3AAC200B3B314 /* MoreOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOptionsCell.swift; sourceTree = "<group>"; };
+		D430DE002AC3B39100B3B314 /* HomeCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorTests.swift; sourceTree = "<group>"; };
+		D430DE022AC3B3F100B3B314 /* UINavigationControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerMock.swift; sourceTree = "<group>"; };
+		D430DE072AC3B52400B3B314 /* PlayerCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCoordinatorTests.swift; sourceTree = "<group>"; };
+		D430DE092AC3B53000B3B314 /* AlbumScreenCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumScreenCoordinatorTests.swift; sourceTree = "<group>"; };
+		D430DE0B2AC3B53900B3B314 /* TrackModalCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackModalCoordinatorTests.swift; sourceTree = "<group>"; };
+		D430DE0E2AC3B6A900B3B314 /* ItunesSearchObjectMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesSearchObjectMock.swift; sourceTree = "<group>"; };
+		D430DE102AC3B73700B3B314 /* HomeServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServiceTests.swift; sourceTree = "<group>"; };
+		D430DE122AC3B79900B3B314 /* MusicPlayerSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerSessionMock.swift; sourceTree = "<group>"; };
+		D430DE142AC3BAFD00B3B314 /* AlbumScreenServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumScreenServiceTests.swift; sourceTree = "<group>"; };
+		D430DE162AC3BB8600B3B314 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		D430DE182AC3C23700B3B314 /* PlayerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModelTests.swift; sourceTree = "<group>"; };
+		D430DE1A2AC3C9D300B3B314 /* PlayerManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManagerTests.swift; sourceTree = "<group>"; };
+		D430DE1C2AC3D8BE00B3B314 /* AlbumScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumScreenViewModelTests.swift; sourceTree = "<group>"; };
+		D430DE1E2AC3DC1700B3B314 /* TrackModalViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackModalViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +222,10 @@
 		D430DD672ABCFE3A00B3B314 /* MusicPlayerChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				D430DE062AC3B50000B3B314 /* TrackModal */,
+				D430DE052AC3B4FB00B3B314 /* AlbumScreen */,
+				D430DE042AC3B4F400B3B314 /* Player */,
+				D430DDFF2AC3B37D00B3B314 /* Home */,
 				D430DDC92ABF3ABF00B3B314 /* SplashScreen */,
 				D430DDA32ABD272200B3B314 /* Supporting Files */,
 				D430DD9E2ABD254700B3B314 /* Networking */,
@@ -285,6 +317,7 @@
 			children = (
 				D430DDA02ABD25DA00B3B314 /* Json */,
 				D430DDA12ABD261900B3B314 /* NetworkAPIMock.swift */,
+				D430DE122AC3B79900B3B314 /* MusicPlayerSessionMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -301,7 +334,9 @@
 		D430DDA32ABD272200B3B314 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D430DE0D2AC3B69400B3B314 /* Mocks */,
 				D430DDA42ABD273200B3B314 /* String+Extension.swift */,
+				D430DE022AC3B3F100B3B314 /* UINavigationControllerMock.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -441,6 +476,53 @@
 				D430DDFA2AC37F6E00B3B314 /* TrackModalCoordinator.swift */,
 			);
 			path = TrackModal;
+			sourceTree = "<group>";
+		};
+		D430DDFF2AC3B37D00B3B314 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D430DE002AC3B39100B3B314 /* HomeCoordinatorTests.swift */,
+				D430DE102AC3B73700B3B314 /* HomeServiceTests.swift */,
+				D430DE162AC3BB8600B3B314 /* HomeViewModelTests.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D430DE042AC3B4F400B3B314 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				D430DE072AC3B52400B3B314 /* PlayerCoordinatorTests.swift */,
+				D430DE182AC3C23700B3B314 /* PlayerViewModelTests.swift */,
+				D430DE1A2AC3C9D300B3B314 /* PlayerManagerTests.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		D430DE052AC3B4FB00B3B314 /* AlbumScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D430DE092AC3B53000B3B314 /* AlbumScreenCoordinatorTests.swift */,
+				D430DE142AC3BAFD00B3B314 /* AlbumScreenServiceTests.swift */,
+				D430DE1C2AC3D8BE00B3B314 /* AlbumScreenViewModelTests.swift */,
+			);
+			path = AlbumScreen;
+			sourceTree = "<group>";
+		};
+		D430DE062AC3B50000B3B314 /* TrackModal */ = {
+			isa = PBXGroup;
+			children = (
+				D430DE0B2AC3B53900B3B314 /* TrackModalCoordinatorTests.swift */,
+				D430DE1E2AC3DC1700B3B314 /* TrackModalViewModelTests.swift */,
+			);
+			path = TrackModal;
+			sourceTree = "<group>";
+		};
+		D430DE0D2AC3B69400B3B314 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				D430DE0E2AC3B6A900B3B314 /* ItunesSearchObjectMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		E5F612FB32F496AAA2EBA126 /* Pods */ = {
@@ -628,11 +710,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D430DE0C2AC3B53900B3B314 /* TrackModalCoordinatorTests.swift in Sources */,
+				D430DE192AC3C23700B3B314 /* PlayerViewModelTests.swift in Sources */,
+				D430DE1D2AC3D8BE00B3B314 /* AlbumScreenViewModelTests.swift in Sources */,
 				D430DDCB2ABF3ACD00B3B314 /* SplashScreenViewModelTests.swift in Sources */,
 				D430DDAB2ABD29FE00B3B314 /* MusicPlayerSessionTests.swift in Sources */,
 				D430DDA52ABD273200B3B314 /* String+Extension.swift in Sources */,
+				D430DE082AC3B52400B3B314 /* PlayerCoordinatorTests.swift in Sources */,
+				D430DE172AC3BB8600B3B314 /* HomeViewModelTests.swift in Sources */,
+				D430DE0F2AC3B6A900B3B314 /* ItunesSearchObjectMock.swift in Sources */,
+				D430DE112AC3B73700B3B314 /* HomeServiceTests.swift in Sources */,
 				D430DDAD2ABD2DDA00B3B314 /* ItunesSearchResponseTest.swift in Sources */,
+				D430DE1F2AC3DC1700B3B314 /* TrackModalViewModelTests.swift in Sources */,
 				D430DDA22ABD261900B3B314 /* NetworkAPIMock.swift in Sources */,
+				D430DE132AC3B79900B3B314 /* MusicPlayerSessionMock.swift in Sources */,
+				D430DE0A2AC3B53000B3B314 /* AlbumScreenCoordinatorTests.swift in Sources */,
+				D430DE152AC3BAFD00B3B314 /* AlbumScreenServiceTests.swift in Sources */,
+				D430DE012AC3B39100B3B314 /* HomeCoordinatorTests.swift in Sources */,
+				D430DE032AC3B3F100B3B314 /* UINavigationControllerMock.swift in Sources */,
+				D430DE1B2AC3C9D300B3B314 /* PlayerManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

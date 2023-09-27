@@ -50,7 +50,8 @@ final class PlayerViewController: BaseViewController {
         let playerButton = PlayerButtonsView()
         playerButton.viewAction = { viewAction in
             switch viewAction {
-            case .didTapPlayButton: break
+            case .didTapPlayButton:
+                PlayerManager.shared.playPauseSong()
             case .didTapNextSongButton:
                 PlayerManager.shared.playNextSong()
             case .didTapPreviousSongButton:
@@ -104,6 +105,7 @@ final class PlayerViewController: BaseViewController {
 
     private func subscribeToPublishers() {
         viewModel.$viewState
+            .receive(on: DispatchQueue.main)
             .sink { viewState in
                 switch viewState {
                 case .updateView(let displayableContent):
@@ -125,6 +127,8 @@ final class PlayerViewController: BaseViewController {
                         totalTime: totalTrackTimeInMillis,
                         currentTime: currentTrackTimeInMillis
                     )
+                case .updatePlayPauseButton(let isPlaying):
+                    self.playerButtonsView.updatePlayButton(isPlaying: isPlaying)
                 default:
                     break
                 }

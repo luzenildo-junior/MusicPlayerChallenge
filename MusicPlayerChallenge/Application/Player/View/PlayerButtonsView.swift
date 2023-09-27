@@ -89,6 +89,11 @@ final class PlayerButtonsView: UIView {
         previousSongButton.isEnabled = canPlayPreviousSong
         nextSongButton.isEnabled = canPlayNextSong
     }
+    
+    func updatePlayButton(isPlaying: Bool) {
+        let iconName = isPlaying ? "pause-icon" : "play-icon"
+        playButton.setImage(UIImage(named: iconName), for: .normal)
+    }
 }
 
 extension PlayerButtonsView {
