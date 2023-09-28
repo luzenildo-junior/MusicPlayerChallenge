@@ -18,9 +18,9 @@ struct FetchAlbumRequest: APIRequest {
         .get
     }
     
-    /// Parameters for team request
+    /// Parameters for album request
     ///     - Parameters:
-    ///         - id: team id to get informations from
+    ///         - albumId: A int64 id of the album to fetch the tracks
     var parameters: RequestParameters {
         .queryItems(
             [

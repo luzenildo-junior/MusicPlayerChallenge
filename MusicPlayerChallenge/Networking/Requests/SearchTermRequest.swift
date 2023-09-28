@@ -20,9 +20,9 @@ struct SearchTermRequest: APIRequest {
         .get
     }
     
-    /// Parameters for team request
+    /// Parameters to search request
     ///     - Parameters:
-    ///         - id: team id to get informations from
+    ///         - albumId: A searchQuery and page to search for songs.
     var parameters: RequestParameters {
         .queryItems(
             [
